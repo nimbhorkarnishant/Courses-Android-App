@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Exam_course">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:layout_width="421dp"
+        android:layout_height="match_parent">
+        <!-- TODO: Update blank fragment layout -->
+
+        <TextView
+            android:id="@+id/section_label1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Examination Scheme"
+            android:textAlignment="center"
+            android:textColor="#D40000"
+            android:textSize="24sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/text_view_p1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/section_label1"
+            android:layout_marginTop="20dp"
+            android:text="Credits:"
+            android:textColor="#181B1B"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/text_view_c1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/section_label1"
+            android:layout_marginLeft="50mm"
+            android:layout_marginTop="20dp"
+            android:text="30"
+            android:textColor="#181B1B"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/text_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_view_p1"
+            android:layout_marginTop="10dp"
+            android:text="IA: Internal Assesment:"
+            android:textColor="#181B1B"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/text_view_c2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_view_p1"
+            android:layout_marginLeft="50mm"
+            android:layout_marginTop="10dp"
+            android:text="30"
+            android:textColor="#181B1B"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/text_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_1"
+            android:text="ICE: In-Course Exam:"
+            android:layout_marginTop="10dp"
+            android:textColor="#181B1B"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/text_view_c3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_1"
+            android:text="30"
+            android:layout_marginTop="10dp"
+            android:textColor="#181B1B"
+            android:textSize="20sp"
+            android:layout_marginLeft="50mm"/>
+        <TextView
+            android:id="@+id/text_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_2"
+            android:text="ECE: End-Course Exam:"
+            android:layout_marginTop="10dp"
+            android:textColor="#181B1B"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/text_view_c4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_2"
+            android:text="40"
+            android:layout_marginTop="10dp"
+            android:textColor="#181B1B"
+            android:textSize="20sp"
+            android:layout_marginLeft="50mm"/>
+        <TextView
+            android:id="@+id/text_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_3"
+            android:text="Practical:"
+            android:layout_marginTop="10dp"
+            android:textColor="#181B1B"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/text_view_c5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_3"
+            android:text="30"
+            android:layout_marginTop="10dp"
+            android:textColor="#181B1B"
+            android:textSize="20sp"
+            android:layout_marginLeft="50mm"/>
+        <TextView
+            android:id="@+id/text_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_4"
+            android:text="Project:"
+            android:layout_marginTop="10dp"
+            android:textColor="#181B1B"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/text_view_c6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_4"
+            android:text="20"
+            android:layout_marginTop="10dp"
+            android:textColor="#181B1B"
+            android:textSize="20sp"
+            android:layout_marginLeft="50mm"/>
+
+        <TextView
+            android:id="@+id/text_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_5"
+            android:text="Total:"
+            android:layout_marginTop="10dp"
+            android:textColor="#181B1B"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/text_view_c7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_5"
+            android:text="150"
+            android:layout_marginTop="10dp"
+            android:textColor="#181B1B"
+            android:textSize="20sp"
+            android:layout_marginLeft="50mm"/>
+
+
+
+
+    </RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,103 @@
+<resources>
+    <string name="app_name">course_deatil_app</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="list_of_course">
+        <item>MAD</item>
+        <item>CLOUD</item>
+        <item>CI</item>
+    </string-array>
+
+    <string-array name="exam_MAD">
+        <item>4</item>
+        <item>30</item>
+        <item>30</item>
+        <item>40</item>
+        <item> - </item>
+        <item>50</item>
+        <item>150</item>
+    </string-array>
+
+    <string-array name="course_MAD">
+        <item>Unit 1: Intoduction to Java</item>
+        <item>Class and Objects, Inheritance, Polymorphism, Abstract class, Encapsulation, Array, Basic of Java Programming</item>
+        <item>Unit 2: The Android Platform</item>
+        <item>Introduction to Android platform, Application framework, Content Provider, Intents, Android API level</item>
+        <item>Unit 3: User Interface Design</item>
+        <item>UI design, Activities, Views, Layout, Activity Lifecycle, Menus, Notification, Communication between activities</item>
+    </string-array>
+
+    <string-array name="practical_MAD">
+        <item>Prctical 1: Tic Tac Toe Game</item>
+        <item>Create Simple Tic Tac Toe Game in android and run it on real Device.</item>
+        <item>Prctical 2: Calculator App</item>
+        <item>Create Simple Calculator in android and run it on real Device.</item>
+        <item>Prctical 3: Design Tab Layout</item>
+        <item>Design a Tab Layout for android device and show course information.</item>
+
+    </string-array>
+
+    <string-array name="exam_CLOUD">
+        <item>4</item>
+        <item>30</item>
+        <item>30</item>
+        <item>40</item>
+        <item> - </item>
+        <item>50</item>
+        <item>150</item>
+    </string-array>
+
+    <string-array name="course_CLOUD">
+        <item>Unit 1: Introduction to Cloud Computing</item>
+        <item>Roots of Cloud Computing, Layers and types of cloud, Desired features of Cloud, Cloud Infrastructure Management</item>
+        <item>Unit 2: Introduction to virtualization and Cloud Deployment Models</item>
+        <item>Basics of Virtualization – Types of Virtualization Techniques – Merits and demerits of Virtualization –Full Vs Para-virtualization </item>
+        <item>Unit 3: The Enterprise Cloud Computing </item>
+        <item>Introduction, Background, issues for enterprise applications on the cloud, Transition challenges, Enterprise cloud technology</item>
+    </string-array>
+
+    <string-array name="practical_CLOUD">
+        <item>Prctical 1: Virtual Machine</item>
+        <item>Creating a Virtual Machine (VM) on a Guest Operating System.</item>
+        <item>Prctical 2: Bare metal Hypervisor</item>
+        <item>Running Multiple Concurrent operating system using a bare Metal Hypervisor.</item>
+        <item>Prctical 3: Virtual Network</item>
+        <item>Creating a Virtual Network to allow VM to VM communication.</item>
+
+    </string-array>
+
+    <string-array name="exam_CI">
+        <item>4</item>
+        <item>30</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+        <item> - </item>
+        <item>150</item>
+    </string-array>
+
+    <string-array name="course_CI">
+        <item>Unit 1: Fuzzy Systems</item>
+        <item>Fuzzy Set Theory: Fuzzy set: Membership, Operations, Properties; Fuzzy Relations. Fuzzy Logic,Fuzzification, Fuzzy Inference, Fuzzy Rule Based System, Defuzzification, Application.</item>
+        <item>Unit 2: Artificial Neural Network</item>
+        <item>Biological neurons and its working. Simulation of biological neurons to problem soloving.Different ANNs architectures.Trainging techniques for ANNs</item>
+        <item>Unit 3: Back Propogation Network</item>
+        <item>Background, Back-Propagation Learning, Back-Propagation Algorithm, Applications.</item>
+    </string-array>
+
+    <string-array name="practical_CI">
+        <item>Prctical 1: Online Matlab Certification</item>
+        <item>Complete the online matlab Certification By given Link.</item>
+        <item>Prctical 2: Implement fuzzy operations</item>
+        <item>Equality,inclusion,comparability,union,intersection,complement of both sets,set difference{(a-b) and (b-a)},symmetric difference.</item>
+        <item>Prctical 3: Fuzzy Controller</item>
+        <item>Select any real time Application and prepare a fuzzy controller using fuzzy tool box.</item>
+
+    </string-array>
+
+
+</resources>
