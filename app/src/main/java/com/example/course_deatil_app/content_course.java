@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -12,7 +13,15 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import static com.example.course_deatil_app.MainActivity.Course_content;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+
+import static com.example.course_deatil_app.MainActivity.reff;
+import static com.example.course_deatil_app.MainActivity.reff1;
+import static com.example.course_deatil_app.MainActivity.reff2;
 
 
 /**
@@ -24,6 +33,9 @@ import static com.example.course_deatil_app.MainActivity.Course_content;
  * create an instance of this fragment.
  */
 public class content_course extends Fragment {
+
+
+     private  final  ArrayList<String> Course_content_list=new ArrayList<String>();
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -72,13 +84,41 @@ public class content_course extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_content_course, container, false);
-//        String[] content_array = getResources().getStringArray(R.array.coursecontent);
-//        ArrayAdapter arrayadpater =ArrayAdapter.createFromResource(getActivity(),R.array.coursecontent,);
-        //String[] contentf = getResources().getStringArray(getResources().getIdentifier("coursecontent","array",getContext().getPackageName()));
-        //String[] contentf={"Unit 1","Unit 2","Unit 3"};
         ListView listView = view.findViewById(R.id.course_content_list);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1,Course_content);
+        System.out.println("list_course--->"+" "+Course_content_list);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1,Course_content_list);
         listView.setAdapter(adapter);
+
+
+        System.out.println("------------------- database theory---------------------");
+
+        reff2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int count = (int) dataSnapshot.getChildrenCount();
+                System.out.println(count);
+
+
+                for (DataSnapshot ds1:dataSnapshot.getChildren()){
+                    String title=ds1.child("title").getValue().toString();
+                    String content=ds1.child("content").getValue().toString();
+                    Course_content_list.add(title);
+                    Course_content_list.add(content);
+                    System.out.println(title);
+                    System.out.println(content);
+
+                }
+                adapter.notifyDataSetChanged();
+
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+
+        });
 
         return view;
     }

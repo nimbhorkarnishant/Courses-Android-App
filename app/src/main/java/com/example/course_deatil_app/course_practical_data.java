@@ -4,9 +4,12 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
@@ -17,8 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 import com.example.course_deatil_app.practical_two_view_cont;
 import com.example.course_deatil_app.ui.main.practical_adapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
-import static com.example.course_deatil_app.MainActivity.Practical_content;
+import static com.example.course_deatil_app.MainActivity.reff1;
+import static com.example.course_deatil_app.MainActivity.reff2;
 
 
 /**
@@ -30,7 +37,7 @@ import static com.example.course_deatil_app.MainActivity.Practical_content;
  * create an instance of this fragment.
  */
 public class course_practical_data extends Fragment {
-    List<practical_two_view_cont> final_practical_data_list;
+    List<practical_two_view_cont> final_practical_data_list=new ArrayList<>();
     private practical_adapter adapter;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -84,28 +91,50 @@ public class course_practical_data extends Fragment {
         //String[] contentf = getResources().getStringArray(getResources().getIdentifier("coursepractical","array",getContext().getPackageName()));
 
         //String[] contentf={"Unit 1","Unit 2","Unit 3"};
-          List<String> practical_course_title_list  = new ArrayList<>();
-          List<String> practical_course_content_list = new ArrayList<>();
-          final_practical_data_list=new ArrayList<>();
-          for (int i=0;i<Practical_content.length;i++){
-            if (i%2==0){
-                practical_course_title_list.add(Practical_content[i]);
-            }
-            else {
-                practical_course_content_list.add(Practical_content[i]);
-            }
-        }
-        ListView listView = view.findViewById(R.id.course_practical_list);
-        final_practical_data_list.add(new practical_two_view_cont(practical_course_title_list.get(0),practical_course_content_list.get(0)));
-        final_practical_data_list.add(new practical_two_view_cont(practical_course_title_list.get(1),practical_course_content_list.get(1)));
-        final_practical_data_list.add(new practical_two_view_cont(practical_course_title_list.get(2),practical_course_content_list.get(2)));
 
-        //ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1,contentf);
-        //listView.setAdapter(adapter);
+        System.out.println("------------------- database practical---------------------");
+        ListView listView = view.findViewById(R.id.course_practical_list);
         adapter=new practical_adapter(getContext(),final_practical_data_list);
         listView.setAdapter(adapter);
+
+        reff1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int count = (int) dataSnapshot.getChildrenCount();
+                System.out.println(count);
+
+
+                for (DataSnapshot ds1:dataSnapshot.getChildren()){
+                    String title=ds1.child("title").getValue().toString();
+                    String content=ds1.child("content").getValue().toString();
+                    final_practical_data_list.add(new practical_two_view_cont(title,content));
+
+                    System.out.println(title);
+                    System.out.println(content);
+
+
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+
+        });
+
         return view;
+
     }
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        MenuInflater inflater=getActivity().getMenuInflater();
+        inflater.inflate(R.menu.context_menu,menu);
+
+    }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

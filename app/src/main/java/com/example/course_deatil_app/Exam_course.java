@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -11,7 +12,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import static com.example.course_deatil_app.MainActivity.Course_credit;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+
+import static com.example.course_deatil_app.MainActivity.reff;
 
 
 /**
@@ -33,6 +38,9 @@ public class Exam_course extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    public  TextView v1,v2,v3,v4,v5,v6,v7;
+
 
     public Exam_course() {
         // Required empty public constructor
@@ -70,21 +78,35 @@ public class Exam_course extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_exam_course, container, false);
-        TextView v1=v.findViewById(R.id.text_view_c1);
-        TextView v2=v.findViewById(R.id.text_view_c2);
-        TextView v3=v.findViewById(R.id.text_view_c3);
-        TextView v4=v.findViewById(R.id.text_view_c4);
-        TextView v5=v.findViewById(R.id.text_view_c5);
-        TextView v6=v.findViewById(R.id.text_view_c6);
-        TextView v7=v.findViewById(R.id.text_view_c7);
-        v1.setText(Course_credit[0]);
-        v2.setText(Course_credit[1]);
-        v3.setText(Course_credit[2]);
-        v4.setText(Course_credit[3]);
-        v5.setText(Course_credit[4]);
-        v6.setText(Course_credit[5]);
-        v7.setText(Course_credit[6]);
+        v1=v.findViewById(R.id.text_view_c1);
+        v2=v.findViewById(R.id.text_view_c2);
+        v3=v.findViewById(R.id.text_view_c3);
+        v4=v.findViewById(R.id.text_view_c4);
+        v5=v.findViewById(R.id.text_view_c5);
+        v6=v.findViewById(R.id.text_view_c6);
+        v7=v.findViewById(R.id.text_view_c7);
+        reff.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                System.out.println("------------------- database_---------------------");
+                String credit=dataSnapshot.child("total_credit").getValue().toString();
+                System.out.println(credit);
+                v1.setText(dataSnapshot.child("total_credit").getValue().toString());
+                v2.setText(dataSnapshot.child("IA").getValue().toString());
+                v3.setText(dataSnapshot.child("ICE").getValue().toString());
+                v4.setText(dataSnapshot.child("ECE").getValue().toString());
+                v5.setText(dataSnapshot.child("practical").getValue().toString());
+                v6.setText(dataSnapshot.child("project").getValue().toString());
+                v7.setText(dataSnapshot.child("total").getValue().toString());
 
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         return v;
     }

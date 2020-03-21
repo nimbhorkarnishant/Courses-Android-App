@@ -7,6 +7,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
+import androidx.annotation.NonNull;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,19 +17,27 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.course_deatil_app.ui.main.SectionsPagerAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
-    static String [] Course_content;
-    static  String [] Practical_content;
-    static  String [] Course_credit;
     ArrayList<String>list_of_course=new ArrayList<String>(Arrays.asList(new String[]{"MAD","CLOUD","CI"}));
+    static DatabaseReference reff;
+    static DatabaseReference reff1;
+    static DatabaseReference reff2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         Intent intent = getIntent();
         String item=intent.getStringExtra("course_name");
@@ -36,24 +45,9 @@ public class MainActivity extends AppCompatActivity {
         String item1="Course Detail: "+item;
         System.out.println(item);
         view.setText(item1);
-        for (int i=0;i<list_of_course.size();i++){
-           System.out.println(list_of_course.get(i));
-
-            if (list_of_course.get(i).equals(item)){
-                String prefix_course="course_";
-                String prefix_practical="practical_";
-                String prefix_exam="exam_";
-                Course_content = getResources().getStringArray(getResources().getIdentifier(prefix_course+item,"array",getApplicationContext().getPackageName()));
-                Practical_content = getResources().getStringArray(getResources().getIdentifier(prefix_practical+item,"array",getApplicationContext().getPackageName()));
-                Course_credit=getResources().getStringArray(getResources().getIdentifier(prefix_exam+item,"array",getApplicationContext().getPackageName()));
-                break;
-            }
-        }
-//        String prefix_course="course_";
-//        String prefix_practical="practical_";
-//        Course_content = getResources().getStringArray(getResources().getIdentifier(prefix_course+item,"array",getApplicationContext().getPackageName()));
-        System.out.println("-------------- From MAin ACtivity _________________-");
-        System.out.println(Course_content);
+        reff=FirebaseDatabase.getInstance().getReference().child("ty_btech_courses").child("courses").child(item).child("Exam_credit");
+        reff1=FirebaseDatabase.getInstance().getReference().child("ty_btech_courses").child("courses").child(item).child("Practical_content");
+        reff2=FirebaseDatabase.getInstance().getReference().child("ty_btech_courses").child("courses").child(item).child("Theory_content");
 
         ViewPager viewPager = findViewById(R.id.view_pager);
         setAdapter(viewPager);
@@ -73,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
+
     }
     private void setAdapter(ViewPager viewPager) {
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());

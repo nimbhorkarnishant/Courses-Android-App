@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1020612094364",
+    "firebase_url": "https://coursedeatilapp.firebaseio.com",
+    "project_id": "coursedeatilapp",
+    "storage_bucket": "coursedeatilapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020612094364:android:a241c40eedd84a59520059",
+        "android_client_info": {
+          "package_name": "com.example.course_deatil_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1020612094364-grnloph54s5kmsgtvp7j4ppgi055lolu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.course_deatil_app",
+            "certificate_hash": "35ba261edf4826e36f8b4dd219189a956269ddb6"
+          }
+        },
+        {
+          "client_id": "1020612094364-g7e3vlalu9n0fb3d5gdv2c0av1m0ciiq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAELA5-TeyVMuSYm_mQLIjogjOrLHE9UEM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1020612094364-g7e3vlalu9n0fb3d5gdv2c0av1m0ciiq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

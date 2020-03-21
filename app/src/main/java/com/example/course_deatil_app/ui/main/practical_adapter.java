@@ -44,8 +44,8 @@ public class practical_adapter extends BaseAdapter {
         View view=View.inflate(mContext, R.layout.practical_content_two_view,null);
         TextView title_tv=view.findViewById(R.id.title_view);
         TextView content_tv=view.findViewById(R.id.practical_content_view);
-        title_tv.setText(final_practical_list.get(position).practical_title);
-        content_tv.setText(final_practical_list.get(position).practical_content);
+        title_tv.setText(final_practical_list.get(position).title);
+        content_tv.setText(final_practical_list.get(position).content);
         return view;
     }
 }
